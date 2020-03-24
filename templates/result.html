@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/resultstyle.css' %}">
+
+</head>
+<body>
+	<style type="text/css">
+		body {
+		background-image: url("{% static 'bg.jpg' %}");
+		}
+	</style>
+	<div class='resultbox'>
+		<h1>Name</h1>
+		<input type="text" value="{{ name }}" readonly><br>
+		<h1>Class</h1>
+		<input type="text" value="{{ class }}" readonly><br>
+		<h1>Section</h1>
+		<input type="text" value="{{ sec }}" readonly><br>
+		<h1>Result</h1>
+		<input type="text" style="color :#00ff00;font-size: 30px;" value="{{ res }}" readonly><br>
+
+	</div>
+</body>
+</html>

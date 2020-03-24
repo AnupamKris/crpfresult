@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	 <style>
+		body {
+  			background-image: url('{% static 'bg.jpg' %}');
+		}
+</style>
+	<div class="loginbox">
+		<img src="{% static 'kvs-logo.png' %}" class="avatar">
+		<h1>K V H V F</h1>
+		<form method="POST" action="#">
+			{% csrf_token %}
+			<p>Student Unique ID</p>
+			<input type="number" name="roll" placeholder="Enter UID">
+			<p>Date Of Birth</p>
+			<input type="date" name="dob" placeholder="Enter DOB in format DDMMYYYY">
+			<input type="submit" name="" value="Submit!">
+		</form>
+		{{ x }}
+	</div>
+
+</body>
+</html>
