@@ -15,11 +15,20 @@ def showresult(request):
             	dob+=i+'-'
             dob = dob[:-1]
             context['dob'] = dob.replace('-','/')
-            df = pd.read_excel('/home/AnupamKris/schoolresult/resultdata.xls')
+            df = pd.read_excel('/home/resultkvhvf/schoolresult/resultdata.xlsx')
             df.columns = ['sno','uid','name','nan','class','section','dob','x','res',]
             x = df.loc[(df['uid']==int(context['uid'])) & (df['dob']==context['dob'])]
             x = x.values[0]
-            cont = {'name' : x[2],'class': x[4],'sec'  : x[5],'res'  : x[8]}
+            if x[8] != 'PASS':
+                otc = '#fc0000'
+                if len(x[8]) > 25:
+                    ots = '17px'
+                else:
+                    ots = '20px'
+            else:
+                otc = '#00fc00'
+                ots = '30px'
+            cont = {'name' : x[2],'class': x[4],'sec'  : x[5],'res'  : x[8], 'outcolor': otc, 'outsize': ots}
             return render(request,'result.html',cont)
         except:
             try:
